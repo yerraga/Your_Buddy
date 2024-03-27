@@ -1,5 +1,6 @@
 package com.yourBuddy.entity;
 
+import com.yourBuddy.enums.UserType;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -21,5 +22,7 @@ public class User {
     private String lastName;
 
     private String email;
+
+    private UserType userType;
 
 }
