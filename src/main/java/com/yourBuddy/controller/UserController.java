@@ -3,9 +3,7 @@ package com.yourBuddy.controller;
 import com.yourBuddy.entity.User;
 import com.yourBuddy.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -15,8 +13,20 @@ public class UserController {
     @Autowired
     UserService userService;
 
+    /**
+     * retrieving list of users
+     * @return
+     */
     @GetMapping("/getAllUsers")
     public List<User> getAllUsers(){
         return userService.getAllUsers();
+    }
+    /**
+     * Registering user
+     * returning user
+     */
+    @PostMapping ("/registerUser")
+    public User registerUser(@RequestBody User user){
+        return userService.registerUser(user);
     }
 }

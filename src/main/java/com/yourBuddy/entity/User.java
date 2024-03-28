@@ -23,6 +23,7 @@ public class User {
 
     private String email;
 
+    @Enumerated(EnumType.STRING)
     private UserType userType;
 
 }
