@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("api/v1/user")
@@ -21,6 +22,7 @@ public class UserController {
     public List<User> getAllUsers(){
         return userService.getAllUsers();
     }
+
     /**
      * Registering user
      * returning user
@@ -28,5 +30,10 @@ public class UserController {
     @PostMapping ("/registerUser")
     public User registerUser(@RequestBody User user){
         return userService.registerUser(user);
+    }
+
+    @GetMapping("/getUserbyId/{id}")
+    public Optional<User> getUserbyId(@PathVariable (name = "id") Long id){
+        return userService.getUserById(id);
     }
 }
